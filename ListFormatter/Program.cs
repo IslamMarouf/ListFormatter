@@ -18,15 +18,16 @@ namespace ListFormatter
                 7, 4, 5, 10,
                 11, 12, 13, 20,
                 22, 23, 11, 9,
-                6, 4, 22, 5,
+                6, 4, 22, 23,
+                24, 25, 26, 5,
                 21, 6, 11, 2,
                 3, 4, 5, 6,
                 7, 8, 9, 10
             };
 
             Console.WriteLine(GetRangeString(numbers));
-            Console.WriteLine("Press any key to continue..");
-            Console.ReadLine();
+            Console.Write("Press any key to continue..");
+            Console.ReadKey();
         }
 
         private static bool IsDiff(int x, int y)
@@ -79,7 +80,7 @@ namespace ListFormatter
             {
                 while (i < list.Count - 1 && list[i] + 1 == list[i + 1])
                 {
-                    if (!isRange) rangeString.Append($"(#) {list[i]}");
+                    if (!isRange) rangeString.Append($"(# days from ) {list[i]}");
                     isRange = true;
                     rangeCount++;
                     i++;
@@ -87,7 +88,7 @@ namespace ListFormatter
 
                 if (isRange)
                 {
-                    rangeString.Append("-");
+                    rangeString.Append(" to ");
                     isRange = false;
                     // This line is ok.....
                     rangeString.Replace("#", $"{rangeCount + 1}");
