@@ -25,6 +25,8 @@ namespace ListFormatter
             };
 
             Console.WriteLine(GetRangeString(numbers));
+            Console.WriteLine("Press any key to continue..");
+            Console.ReadLine();
         }
 
         private static bool IsDiff(int x, int y)
@@ -103,7 +105,10 @@ namespace ListFormatter
                 difference++;
             }
 
-            return rangeString.ToString().TrimEnd(',');
+            rangeString.Replace(" (0) ", "");
+            rangeString.Replace(" (@) ", "");
+            
+            return rangeString.ToString().TrimEnd(',');      // ... ... 
         }
     }
 }
