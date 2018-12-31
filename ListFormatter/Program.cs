@@ -26,7 +26,7 @@ namespace ListFormatter
             };
 
             Console.WriteLine(GetRangeString(numbers));
-            Console.Write("Press any key to continue..");
+            Console.Write("Press any key to continue.");
             Console.ReadKey();
         }
 
@@ -80,7 +80,7 @@ namespace ListFormatter
             {
                 while (i < list.Count - 1 && list[i] + 1 == list[i + 1])
                 {
-                    if (!isRange) rangeString.Append($"(# days from ) {list[i]}");
+                    if (!isRange) rangeString.Append($" # days from {list[i]}");
                     isRange = true;
                     rangeCount++;
                     i++;
@@ -108,8 +108,11 @@ namespace ListFormatter
 
             rangeString.Replace(" (0) ", "");
             rangeString.Replace(" (@) ", "");
-            
-            return rangeString.ToString().TrimEnd(',');      // ... ... 
+            string temp = string.Empty;
+            temp = rangeString.ToString().TrimEnd(',');
+            temp += $" ({list.Count} days.)";
+
+            return temp;      // ... ... 
         }
     }
 }
