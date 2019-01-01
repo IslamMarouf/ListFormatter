@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +25,7 @@ namespace ListFormatter
 
             Console.WriteLine(GetRangeString(numbers));
             Console.Write("Press any key to continue.");
-            Console.ReadKey();
-            //   
+            Console.ReadKey();  
         }
 
         private static bool IsDiff(int x, int y) {
