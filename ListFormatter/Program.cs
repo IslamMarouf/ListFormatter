@@ -26,6 +26,7 @@ namespace ListFormatter
             Console.WriteLine(GetRangeString(numbers));
             Console.Write("Press any key to continue.");
             Console.ReadKey();
+            //   
         }
 
         private static bool IsDiff(int x, int y) {
