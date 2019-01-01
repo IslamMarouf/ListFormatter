@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,8 @@ namespace ListFormatter
 {
     class Program
     {
-        public static void Main(string[] args)
-        {
-            var numbers = new List<int>
-            {
+        public static void Main(string[] args) {
+            var numbers = new List<int> {
                 1, 2, 3, 4,
                 5, 6, 7, 8,
                 9, 2, 6, 3,
@@ -28,15 +26,14 @@ namespace ListFormatter
             Console.WriteLine(GetRangeString(numbers));
             Console.Write("Press any key to continue.");
             Console.ReadKey();
+            //   
         }
 
-        private static bool IsDiff(int x, int y)
-        {
+        private static bool IsDiff(int x, int y) {
             return y - x == 1;
         }
 
-        public static string GetRangeString(List<int> list)
-        {
+        public static string GetRangeString(List<int> list) {
             // Return fast if list is null or contains less than 2 items
             if (list == null || !list.Any()) return string.Empty;
             if (list.Count == 1) return list[0].ToString();
@@ -46,23 +43,20 @@ namespace ListFormatter
             int rangeCount = 0;
             int difference = 0;
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                while (i < list.Count - 1 && list[i] + 1 == list[i + 1])
-                {
+            for (int i = 0; i < list.Count; i++) {
+                while (i < list.Count - 1 && IsDiff(list[i], list[i + 1])) {
                     if (!isRange) rangeString.Append($" # from {list[i]}");
                     isRange = true;
                     rangeCount++;
                     i++;
                 }
 
-                if (isRange)
-                {
+                if (isRange) {
                     rangeString.Append(" to ");
                     isRange = false;
                     // This line is ok.....
                     rangeString.Replace("#", $"{rangeCount + 1}" + NumberStr(rangeCount + 1));
-                    // Under Development....
+                    
                     rangeString.Replace("@", $"{difference - 1}");
                     rangeCount = 0;
                     difference = 0;
@@ -85,8 +79,7 @@ namespace ListFormatter
             return temp; // ... ... 
         }
 
-        public static string NumberStr(int n)
-        {
+        public static string NumberStr(int n) {
             if (n == 1)
                 return " number";
 
